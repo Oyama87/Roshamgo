@@ -17,12 +17,22 @@ async function initFirebase() {
     storageBucket: 'rockpaperscissors-cb169.appspot.com',
   };
   const firebaseApp = await firebase.initializeApp(firebaseConfig);
-  console.log(firebaseApp);
   db = firebase.firestore();
   const settings = { timestampsInSnapshots: true };
   db.settings(settings);
 }
 initFirebase();
+
+export const createGame = (challengerId, challengeeId, choice) => {
+  const newGame = {
+    challengerId,
+    challengeeId,
+    choice,
+  };
+  db.collection('games')
+    .doc()
+    .set(newGame);
+};
 
 export default class App extends React.Component {
   state = {
