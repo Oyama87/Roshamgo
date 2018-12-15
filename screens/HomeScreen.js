@@ -16,6 +16,8 @@ import { MonoText } from '../components/StyledText';
 //from App.js, prob temporary
 import { createGame } from '../App';
 
+import PlayerInList from '../components/PlayerInList';
+
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
@@ -28,6 +30,9 @@ export default class HomeScreen extends React.Component {
           style={styles.container}
           contentContainerStyle={styles.contentContainer}
         />
+        <PlayerInList />
+        <PlayerInList />
+        <PlayerInList />
         <Button
           title="game"
           onPress={() =>
